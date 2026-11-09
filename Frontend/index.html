@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaisaPlan | Personal Budget Planner</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="auth-container">
+
+    <div class="brand-panel">
+        <div class="brand">
+            <span class="brand-icon">₹</span>
+            <span>PaisaPlan</span>
+        </div>
+
+        <div class="brand-content">
+            <span class="eyebrow">SMART MONEY. BETTER LIFE.</span>
+            <h1>Take control of your money. Build your future.</h1>
+            <p>Plan your budgets, track your expenses and make every rupee count.</p>
+
+            <div class="feature">
+                <span>✓</span> Smart monthly budget planning
+            </div>
+            <div class="feature">
+                <span>✓</span> Track every expense
+            </div>
+            <div class="feature">
+                <span>✓</span> Achieve your savings goals
+            </div>
+        </div>
+
+        <div class="brand-footer">
+            Your money, your goals, your future.
+        </div>
+    </div>
+
+    <main class="form-panel">
+
+        <!-- LOGIN -->
+        <section id="loginPage" class="page">
+            <div class="form-heading">
+                <span class="mini-label">WELCOME BACK</span>
+                <h2>Login to your account</h2>
+                <p>Enter your details to continue your financial journey.</p>
+            </div>
+
+            <form id="loginForm">
+                <label>Email Address</label>
+                <input type="email" id="loginEmail" placeholder="Enter your email" required>
+
+                <label>Password</label>
+                <input type="password" id="loginPassword" placeholder="Enter your password" required>
+
+                <button type="submit" class="primary-btn">Login to PaisaPlan →</button>
+            </form>
+
+            <p class="switch-text">
+                Don't have an account?
+                <a href="#" onclick="showPage('registerPage')">Create Account</a>
+            </p>
+        </section>
+
+        <!-- REGISTER -->
+        <section id="registerPage" class="page hidden">
+            <div class="form-heading">
+                <span class="mini-label">GET STARTED</span>
+                <h2>Create your account</h2>
+                <p>Join PaisaPlan and start managing your money.</p>
+            </div>
+
+            <form id="registerForm">
+                <label>Full Name</label>
+                <input type="text" id="regName" placeholder="Enter your full name" required>
+
+                <label>Email Address</label>
+                <input type="email" id="regEmail" placeholder="Enter your email" required>
+
+                <label>Password</label>
+                <input type="password" id="regPassword" placeholder="Create a password" minlength="6" required>
+
+                <label>Confirm Password</label>
+                <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+
+                <button type="submit" class="primary-btn">Create Account →</button>
+            </form>
+
+            <p class="switch-text">
+                Already have an account?
+                <a href="#" onclick="showPage('loginPage')">Login</a>
+            </p>
+        </section>
+
+        <!-- PERSONAL DETAILS -->
+        <section id="profilePage" class="page hidden">
+            <div class="form-heading">
+                <span class="mini-label">STEP 2 OF 2</span>
+                <h2>Tell us about yourself</h2>
+                <p>Let's personalize your financial planning experience.</p>
+            </div>
+
+            <form id="profileForm">
+                <label>Full Name</label>
+                <input type="text" id="profileName" placeholder="Your full name" required>
+
+                <label>Mobile Number</label>
+                <input type="tel" id="mobile" placeholder="10-digit mobile number"
+                       pattern="[0-9]{10}" maxlength="10" required>
+
+                <div class="two-column">
+                    <div>
+                        <label>Date of Birth</label>
+                        <input type="date" id="dob" required>
+                    </div>
+                    <div>
+                        <label>Age</label>
+                        <input type="number" id="age" placeholder="Your age" readonly>
+                    </div>
+                </div>
+
+                <label>Gender</label>
+                <select id="gender" required>
+                    <option value="">Select gender</option>
+                    <option>Female</option>
+                    <option>Male</option>
+                    <option>Other</option>
+                    <option>Prefer not to say</option>
+                </select>
+
+                <label>Profession</label>
+                <select id="profession" required>
+                    <option value="">Select profession</option>
+                    <option>Student</option>
+                    <option>Employee</option>
+                    <option>Business Owner</option>
+                    <option>Freelancer</option>
+                    <option>Self Employed</option>
+                    <option>Homemaker</option>
+                    <option>Other</option>
+                </select>
+
+                <label>Monthly Salary / Income (₹)</label>
+                <input type="number" id="salary" placeholder="e.g. 25000" min="0" required>
+
+                <label>Monthly Savings Goal (₹)</label>
+                <input type="number" id="savings" placeholder="e.g. 5000" min="0" required>
+
+                <label>City</label>
+                <input type="text" id="city" placeholder="Enter your city" required>
+
+                <button type="submit" class="primary-btn">Save Details & Continue →</button>
+            </form>
+        </section>
+
+        <!-- DASHBOARD -->
+        <section id="dashboardPage" class="page hidden">
+            <div class="dashboard-top">
+                <div>
+                    <span class="mini-label">YOUR FINANCIAL SPACE</span>
+                    <h2>Welcome, <span id="welcomeName">User</span>! 👋</h2>
+                    <p>Your journey towards smarter money management starts here.</p>
+                </div>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+
+            <div class="profile-card">
+                <h3>Personal Profile</h3>
+                <div class="profile-grid" id="profileSummary"></div>
+            </div>
+
+            <div class="next-card">
+                <span>🎯</span>
+                <h3>Ready to plan your budget?</h3>
+                <p>Start allocating money to your monthly spending categories.</p>
+                <button class="primary-btn" onclick="alert('Budget planner will be added in the next development step!')">
+                    Explore Budget Planner →
+                </button>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
